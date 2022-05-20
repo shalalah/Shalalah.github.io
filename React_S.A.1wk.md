@@ -79,7 +79,7 @@
             . 외부 환경 정보를 구성한다
             . this 값을 설정한다.
             
-##### **콜스택(call stack)**이란 코드가 실행되면서 생성되는 Execution Context를 저장하는 자료구조로 프로그램이 함수 호출을 추적할 때 사용한다. 
+##### 콜스택(call stack)이란 코드가 실행되면서 생성되는 Execution Context를 저장하는 자료구조로 프로그램이 함수 호출을 추적할 때 사용한다. 
 ##### 엔진이 처음 script를 실행할 때, Global Execution Context를 생성하고 이를 Call Stack에 push한다.
 ##### 그 후 엔진이 함수를 호출할 때 마다 함수를 위한 Execution Context를 생성하고 이를 Call Stack에 push 한다.
 ##### 자바스크립트 엔진은 Call Stack의 Top에 위치한 함수를 실행하며 함수가 종료되면 stack에서 제거(pop)하고 제어를 다음 Top에 위치한 함수로 이동한다.
