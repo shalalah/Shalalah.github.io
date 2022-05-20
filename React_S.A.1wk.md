@@ -93,3 +93,40 @@
 
 
 ### **4. 실습과제**
+          // 실습과제
+          let b = 1;
+
+          function hi () {
+
+          const a = 1;
+
+          let b = 100;
+
+          b++;
+
+          console.log(a,b);
+
+          }
+
+          console.log(a); // a가 지역(local)스코프로 선언되어 바깥의 범위에서는 undefined.
+
+          console.log(b); //1로 찍힐 것이다. 1번째 라인에서 b가 정의되어 있다.
+
+          hi(); // console.log(a,b); 이 출력됨. 1, 101
+
+          console.log(b); // 첫 줄 let b = 1; 이 출력됨. 1
+
+          // 수정
+          let b = 1;
+          const a = 1;	// a가 전역(global)스코프로 선언되어 바깥의 범위에서도 1 출력.
+          function hi () {
+
+              let b = 100;
+              b++;
+              console.log(a,b);
+          }
+
+          console.log(a);
+          console.log(b); 
+          hi();
+          console.log(b);
