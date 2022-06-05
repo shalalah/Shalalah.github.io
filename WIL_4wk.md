@@ -4,7 +4,7 @@
   #### 클래스형 컴포넌트와 함수형 컴포넌트
   리액트 컴포넌트는 클래스형 컴포넌트 또는 함수형 컴포넌트로 작성될 수 있다.
 
-    - **클래스형 컴포넌트**는 상태값을 가질 수 있고, 리액트 컴포넌트의 생명 주기 함수를 작성할 수 있다. 그러나 **함수형 컴포넌트**는 이 모든 일을 할 수 없다. 이 둘의 차이점은 상태값과   LifeCycle를 가질 수 있느냐 없느냐이다.
+  **클래스형 컴포넌트**는 상태값을 가질 수 있고, 리액트 컴포넌트의 생명 주기 함수를 작성할 수 있다. 그러나 **함수형 컴포넌트**는 이 모든 일을 할 수 없다. 이 둘의 차이점은 상태값과 LifeCycle를 가질 수 있느냐 없느냐이다.
   ##### (참고)리액트 버전 16.8부터 훅(Hook)이 등장하면서 함수형 컴포넌트에서도 상태값과 생명 주기 함수 코드를 작성 할 수 있게 되었다.
       
 ![스크린샷 2022-06-05 오후 11 12 31](https://user-images.githubusercontent.com/105087933/172054808-524a92a2-d81b-488d-8376-76589b57d244.png)
@@ -20,7 +20,7 @@
       - 클래스형 컴포넌트보다 선언하기 수월하다
       - 클래스형 컴포넌트보다 메모리 자원을 덜 사용한다
       - state, 라이프사이클 API를 사용할 수 없다 -> React Hooks을 통해 해결 할 수 있게 되었다.  
-       *참고 : https://velog.io/@seong-dodo/React-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%98%95-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-vs-%ED%95%A8%EC%88%98%ED%98%95-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8
+   *참고 : https://velog.io/@seong-dodo/React-%ED%81%B4%EB%9E%98%EC%8A%A4%ED%98%95-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-vs-%ED%95%A8%EC%88%98%ED%98%95-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8
 ***
 
 #### \*라이프사이클
@@ -42,7 +42,7 @@
   - **언마운트 단계 (소멸 단계)** 에서는 컴포넌트가 화면에서 사라지기 직전에 아래 메서드가 호출된다. 
      componentWillUnmount 가 호출된다.
   
-    참고 : https://react.vlpt.us/basic/25-lifecycle.html
+  참고 : https://react.vlpt.us/basic/25-lifecycle.html
     https://ko.reactjs.org/docs/react-component.html#constructor
   
 ***
@@ -60,8 +60,8 @@
   - **useEffect** : 클래스 컴포넌트의 생명주기 메소드 componentDidMount(), componentDidUpdate, componentWillUnmount()를 통합한 것과 같은 API로 side effect를 발생하는 작업을 수행하는 훅 API이다.
   - *useState는 변수를 추척해 변화가 생긴다면 재렌더링하는 기능이라면, useEffect는 변수를 추적해 변화가 생기면 어떠한 기능을 수행한다.*
   -  useEffect는렌더링, 혹은 변수의 값 혹은 오브젝트가 달라지게 되면, 그것을 인지하고 업데이트를 해주는 함수이다. useEffect는 콜백 함수를 부르게 되며, 렌더링 혹은 값, 오브젝트의 변경에 따라 어떠한 함수 혹은 여러 개의 함수들을 동작시킬 수 있다.
-  (예제){![스크린샷 2022-06-05 오후 11 45 21](https://user-images.githubusercontent.com/105087933/172056199-5f22f174-0003-48fe-a269-6570694337e3.png)
-    참고 링크 : https://gist.github.com/ninanung/0ea87bc3d14ed8b1f9e7488561a4b910
+  (예제){![스크린샷 2022-06-05 오후 11 45 21](https://user-images.githubusercontent.com/105087933/172056199-5f22f174-0003-48fe-a269-6570694337e3.png)  
+    참고 링크 : https://gist.github.com/ninanung/0ea87bc3d14ed8b1f9e7488561a4b910  
     (참고) effect를 실행하고 이를 정리(clean-up)하는 과정을 (마운트와 마운트 해제 시에)딱 한 번씩만 실행하고 싶다면, 빈 배열([])을 두 번째 인수로 넘기면 된다. 이렇게 함으로써 React로 하여금 여러분의 effect가 prop이나 state의 그 어떤 값에도 의존하지 않으며 따라서 재실행되어야 할 필요가 없음을 알게 하는 것이다. 이는 의존성 배열의 작동 방법을 그대로 따라서 사용하는 것일 뿐이며 특별한 방법인 것은 아니다. 빈 배열([])을 넘기게 되면, effect 안의 prop과 state는 초깃값을 유지하게 된다. 빈 배열([])을 두 번째 인수로 넘기는 것이 기존에 사용하던 componentDidMount와 componentWillUnmount 모델에 더 가깝지만, effect의 잦은 재실행을 피할 수 있는 더 나은 해결방법이 있다. 또한 React는 브라우저가 다 그려질 때까지 useEffect의 실행을 지연하기 때문에 추가적인 작업을 더하는 것이 큰 문제가 되지는 않습니다.
 
   - **useReducer**는 useState보다 더 다양한 컴포넌트 상황에 따라 다양한 상태를 다른 값으로 업데이트 해주고 싶을 때 사용하는 Hook이다. 
