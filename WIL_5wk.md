@@ -14,7 +14,7 @@
       - HTTP 요청과 응답을 JSON 형태로 자동 변경
 ***
   ##### Axios 사용법
-    1. 설치
+  1. 설치
     - yarn 사용하기
   ```
   yarn add axios
