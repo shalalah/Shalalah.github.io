@@ -52,4 +52,19 @@
   - welcome 이벤트 → Peer A인 브라우저에서 실행됨 → offer를 생성함 → setLocalDescription 가 일어나고 Peer B로 그 offer를 보낸다
   - offer  이벤트 → Peer B인 브라우저에서 실행됨 → server를 통해 offer랑 같이 옴  
 
+  **Answers**
+  - Peer A에서 offer를 만들고 setLocalDescription을 함 ⇒ 그걸 서버에 보내고 ⇒ Peer B가 그 offer를 받고(socket on “welcome”) 그 offer로 setRemoteDescription을 함, createAnswer를 하고 ⇒ 그 answer로 setLocalDescription함(getUserMedia & addStream은 Peer B가 방에 들어왔을 때 실행했음) ⇒ answer 이벤트를 발생시켜 서버로 보내서 signaling server(즉, Socket.IO)로 돌아감 ⇒ Peer A에서 setRemoteDescription
   
+  **IceCandidate**
+  - peer-to-peer 연결의 양쪽에서 IceCandidate라는 이벤트를 실행
+    ⇒ iceCandidate(Internet Connectivity Establishment; 인터넷 연결 생성) : webRTC에 필요한 프로토콜들이며, 멀리 떨어진 장치와 소통할 수 있게 하기 위함 → 브라우저가 서로 소통할 수 있게 해주는 방법 → 어떤 소통 방법이 가장 좋을 것인지를 제안할 때 쓰임
+
+  **(추가)Senders**
+  - sender는 우리의 peer로 보내진 media stream track을 컨트롤하는 방법  
+  
+  **(추가)STUN**
+  - STUN 서버는 컴퓨터가 공용 IP주소를 찾게 해준다
+  - 핸드폰과 컴퓨터가 같은 와이파이를 사용해야 서로 화면에 나타남 → 다른 와이파이를 사용하더라도 공용 IP를 알려주는 것이 필요함 → 공용주소를 알아내서 다른 네트워크에 있더라도 서로 화면에 나타날 수 있도록 STUN서버를 사용하고 있는 것임
+
+**⚠️ webRTC 단점 몇가지**
+- 그물망 방식이기 때문에 peer들이 많을 때는 느려진다 → SFU같은 것이 대안이 될 수 있다
